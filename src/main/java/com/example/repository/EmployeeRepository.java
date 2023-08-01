@@ -26,7 +26,7 @@ public class EmployeeRepository {
    * @return
    */
   public List<Employee> findAll() {
-    String sql = "SELECT * FROM employees ORDER BY age";
+    String sql = "SELECT * FROM employees ORDER BY hire_date DESC";
     List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 
     return employeeList;
