@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 
 @Controller
@@ -38,5 +39,15 @@ public class AdministratorController {
     BeanUtils.copyProperties(form, administrator);
     administratorService.insert(administrator);
     return "redirect:/";
+  }
+
+  /**
+   * 「administrator/login.html」にフォワードする処理
+   * @param form
+   * @return
+   */
+  @GetMapping("/")
+  public String toLogin(LoginForm form) {
+    return "administrator/login";
   }
 }
