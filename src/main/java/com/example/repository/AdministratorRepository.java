@@ -8,8 +8,12 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.example.domain.Administrator;
+import com.example.form.LoginForm;
+
+import jakarta.servlet.http.HttpSession;
 
 @Repository
 public class AdministratorRepository {
@@ -38,7 +42,7 @@ public class AdministratorRepository {
    * @return
    */
   public Administrator findByMailAddressAndPassword(String mailAddress, String password) {
-    String sql = "SELECT * FROM administrators WHERE mailAddress=:mailAddress AND password=:password";
+    String sql = "SELECT * FROM administrators WHERE mail_address=:mailAddress AND password=:password";
     SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password",
         password);
     try {
@@ -47,5 +51,6 @@ public class AdministratorRepository {
       return null;
     }
   }
+
 
 }

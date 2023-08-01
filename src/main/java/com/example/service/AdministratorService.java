@@ -24,6 +24,7 @@ public class AdministratorService {
 
   /**
    * ログイン処理
+   * 
    * @param mailAddress
    * @param password
    * @return
